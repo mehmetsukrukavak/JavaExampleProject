@@ -1,4 +1,4 @@
-package com.expample.Test;
+package com.example.Test;
 
 import com.example.entities.School;
 import com.example.entities.Student;

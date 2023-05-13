@@ -160,6 +160,7 @@ public class EducationConsole {
         System.out.println("Yükleniyor....");
         try {
             school.setStudentList(studentLoader.load());
+            System.out.println("Dosyadan Öğrenci Listesi Başarıyla Yüklenmiştir...");
             list(school.getStudentList());
 
         } catch (Exception e) {
@@ -173,7 +174,7 @@ public class EducationConsole {
         try {
 
             studentStorer.store(school.getStudentList());
-
+            System.out.println("Öğrenci Listesi Başarıyla Saklanmıştır...");
         } catch (Exception e) {
             e.printStackTrace();
         }
