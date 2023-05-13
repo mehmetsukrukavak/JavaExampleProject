@@ -18,7 +18,7 @@ public class StudentStorerTest {
         studentList.add(student0);
         studentList.add(student1);
 
-        StudentStorer studentStorer = new StudentStorer("student.txt");
+        StudentStorer studentStorer = new StudentStorer("student_.txt");
         studentStorer.setFieldDelimiter("|");
         studentStorer.setNewline("\r\n");
         studentStorer.store(studentList);

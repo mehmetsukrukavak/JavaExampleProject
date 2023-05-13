@@ -8,16 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class StudentLoader {
-    private String filePath;
-    private String fieldDelimiter = "|";
-
-
-    public StudentLoader() {
-    }
+public class StudentLoader extends Filer {
 
     public StudentLoader(String filePath) {
-        this.filePath = filePath;
+        super(filePath);
 
     }
 
@@ -50,22 +44,5 @@ public class StudentLoader {
         return student;
 
     }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public String getFieldDelimiter() {
-        return fieldDelimiter;
-    }
-
-    public void setFieldDelimiter(String fieldDelimiter) {
-        this.fieldDelimiter = fieldDelimiter;
-    }
-
 
 }

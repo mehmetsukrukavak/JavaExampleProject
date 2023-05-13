@@ -6,15 +6,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.List;
 
-public class StudentStorer {
-    private String filePath;
-    private String fieldDelimiter = "|";
+public class StudentStorer extends Filer{
+
     private String newline = "\r\n";
-    public StudentStorer() {
-    }
+
 
     public StudentStorer(String filePath) {
-        this.filePath = filePath;
+        super(filePath);
     }
     public void store(List<Student> studentList) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
@@ -36,21 +34,6 @@ public class StudentStorer {
         sb.append(student.getStudentName()).append(fieldDelimiter);
         sb.append(student.getAverageMark()).append(newline);
         return sb.toString();
-    }
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public String getFieldDelimiter() {
-        return fieldDelimiter;
-    }
-
-    public void setFieldDelimiter(String fieldDelimiter) {
-        this.fieldDelimiter = fieldDelimiter;
     }
 
     public String getNewline() {

@@ -50,5 +50,9 @@ public class Student implements Serializable {
         this.averageMark = averageMark;
     }
 
+    @Override
+    public String toString() {
 
+        return String.format("\t Student : %d %-20s %4.2f", studentId, studentName, averageMark);
+    }
 }

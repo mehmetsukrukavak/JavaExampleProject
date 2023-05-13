@@ -6,8 +6,8 @@ import java.util.List;
 
 public class StudentLoaderTest {
     public static void main(String[] args) {
-        StudentLoader studentLoader = new StudentLoader();
-        studentLoader.setFilePath("student.txt");
+        StudentLoader studentLoader = new StudentLoader("student_.txt");
+        //studentLoader.setFilePath("student.txt");
         studentLoader.setFieldDelimiter("|");
         List<Student> studentList = studentLoader.load();
 

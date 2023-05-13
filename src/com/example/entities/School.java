@@ -48,4 +48,12 @@ public class School implements Serializable {
         }
         return null;
     }
+
+    public Student addStudent(long studentId, String studentName, double averageMark){
+        Student student = new Student(studentId,studentName,averageMark);
+        student.setSchool(this);
+        studentList.add(student);
+        return student;
+
+    }
 }

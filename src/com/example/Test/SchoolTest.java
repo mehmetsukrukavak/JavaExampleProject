@@ -35,6 +35,9 @@ public class SchoolTest {
         school1.setStudentList(studentList1);
         school1.getStudentList().add(student2);
         school1.getStudentList().add(student3);
+
+        school1.addStudent(104, "Beyaz", 5.82);
+
         school1.setSchoolId(201);
         school1.setSchoolName("Sanat Lisesi");
 
@@ -51,8 +54,9 @@ public class SchoolTest {
             System.out.printf("SCHOOL : %d %-20s \r\n",
                     school.getSchoolId(),
                     school.getSchoolName());
-            for(Student student: school.getStudentList()){
-                System.out.printf("\t Student : %d %-20s %4.2f \r\n", student.getStudentId(), student.getStudentName(), student.getAverageMark());
+            for (Student student : school.getStudentList()) {
+              // System.out.printf("\t Student : %d %-20s %4.2f \r\n", student.getStudentId(), student.getStudentName(), student.getAverageMark());
+                System.out.println(student);
             }
         }
     }

@@ -97,8 +97,10 @@ public class EducationConsole {
         System.out.println("Öğrenci Notu : ");
         double studentAverageMark = scanner.nextDouble();
 
-        Student student = new Student(studentId, studentName, studentAverageMark);
-        school.getStudentList().add(student);
+//        Student student = new Student(studentId, studentName, studentAverageMark);
+//        student.setSchool(school);
+//        school.getStudentList().add(student);
+        school.addStudent(studentId, studentName, studentAverageMark);
         System.out.println("Öğrenci Başarıyla Eklenmiştir...");
 
     }
@@ -158,26 +160,40 @@ public class EducationConsole {
 
     private static void LoadStudents() {
         System.out.println("Yükleniyor....");
-        try {
-            school.setStudentList(studentLoader.load());
-            System.out.println("Dosyadan Öğrenci Listesi Başarıyla Yüklenmiştir...");
-            list(school.getStudentList());
+       Runnable runnable = new Runnable() {
+           @Override
+           public void run() {
+               try {
+                   school.setStudentList(studentLoader.load());
+                   System.out.println("Dosyadan Öğrenci Listesi Başarıyla Yüklenmiştir...");
+                   list(school.getStudentList());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
+           }
+       };
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 
     private static void StoreStudents() {
         System.out.println("Saklanıyor....");
 
-        try {
+      Runnable runnable = new Runnable() {
+          @Override
+          public void run() {
+              try {
 
-            studentStorer.store(school.getStudentList());
-            System.out.println("Öğrenci Listesi Başarıyla Saklanmıştır...");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                  studentStorer.store(school.getStudentList());
+                  System.out.println("Öğrenci Listesi Başarıyla Saklanmıştır...");
+              } catch (Exception e) {
+                  e.printStackTrace();
+              }
+          }
+      };
+      Thread thread = new Thread(runnable);
+      thread.start();
     }
 
     private static void exitConsole(int i) {
